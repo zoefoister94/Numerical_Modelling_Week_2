@@ -10,6 +10,10 @@ def solveByBisect(f, a, b, nmax=100, e=1e-6):
     "Solve function f by bisection method."
     "Solve to error e starting from a and b. Maximum nmax iterations"
 
+    if nmax <= 0:
+        raise ValueError('Argument nmax to solveByBisect should be >0')
+
+
     # Iterate until the solution is within the
     # error or too many iterations
     for it in range(nmax):
@@ -32,4 +36,5 @@ except:
 else:
     print("Error in solveByBisect, should raise an exception as there is no root")
  
-#solveByBisect(np.cos, -1., 1.)
+root=solveByBisect(np.cos, -10., 10., 10000)[0]
+print ("root=",root)
